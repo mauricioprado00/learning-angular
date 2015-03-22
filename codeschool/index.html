@@ -11,16 +11,14 @@
 <body ng-controller="StoreController as store">
 	<p>{{"Show single store.product"}}</p>
 	<div ng-hide="store.product.soldOut">
-		<h1>{{store.product.name}}</h1>
-		<h2>{{store.product.price | currency}}</h2>
 		<p>{{store.product.description}}</p>
+		<div ng-include="'product-title.html'"></div>
 		<button ng-show="store.product.canPurchase">Add to cart</button>
 	</div>
 
 	<p>{{"Show multiple products in store.products"}}</p>
 	<div ng-repeat="product in store.products" ng-hide="product.soldOut">
-		<h1>{{product.name}}</h1>
-		<h2>{{product.price | currency}}</h2>
+		<div ng-include="'product-title.html'"></div>
 		<p>{{product.description}}</p>
 		<button ng-show="product.canPurchase">Add to cart</button>
 	</div>
