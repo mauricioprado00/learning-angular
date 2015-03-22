@@ -26,7 +26,19 @@
 		price: 2.95,
 		description: ". . . ",
 		canPurchase: false,
-		soldOut: false
+		soldOut: false,
+		reviews: [
+			{
+				stars: 5,
+				body: "I love this product!",
+				author: "somebody@gmail.com"
+			},
+			{
+				stars: 4,
+				body: "its good",
+				author: "somebody+2@gmail.com"
+			}
+		]
 	};
 
 	var gems = [
