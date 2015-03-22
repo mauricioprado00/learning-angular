@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="js/bootstrap-3.3.4-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="js/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<script type="text/javascript" src="js/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
@@ -52,14 +53,14 @@
 				<cite>by: {{review.author}}</cite>
 			</blockquote>
 
-			<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(store.product)">
+			<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(store.product)" novalidate>
 				<blockquote>
 					<p>Stars: {{reviewCtrl.review.stars}}</p>
 					{{reviewCtrl.review.body}}
 					<cite>by: {{reviewCtrl.review.author}}</cite>
 				</blockquote>
 				<fieldset class="form-group">
-				<select ng-model="reviewCtrl.review.stars">
+				<select ng-model="reviewCtrl.review.stars" required>
 					<option value="1">1 star</option>
 					<option value="2">2 star</option>
 					<option value="3">3 star</option>
@@ -68,12 +69,14 @@
 				</select>
 				</fieldset>
 				<fieldset class="form-group">
-				<textarea ng-model="reviewCtrl.review.body"></textarea>
+				<textarea ng-model="reviewCtrl.review.body" required></textarea>
 				</fieldset>
 				<fieldset class="form-group">
 				<label>by: </label>
-				<input ng-model="reviewCtrl.review.author" type="email" />
+				<input ng-model="reviewCtrl.review.author" type="email" required />
 				</fieldset>
+
+				<div>reviewForm is {{reviewForm.$valid}}</div>
 				<input type="submit" value="Submit" />
 			</form>
 		</div>
